@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>Độ C</table>
+<input id="dauVao" type="text">
+<button onclick="tinhToan()">Đổi Nhiệt Độ</button>
+<br>
+<input id="dauRa" type="text">
+<table>Độ F</table>
+<input id="dauRa2" type="text">
+<table>Độ K</table>
+<script>
+    class DoiNhietDo{
+        constructor(doC,doF,doK) {
+            this.doC = doC;
+        }
+        getDoiDoF(){
+            if (this.doC < - 273){
+                return -500;
+            }else{
+                return this.doC * (9/5) + 32;
+            }
+        }
+        getDoiDoK(){
+            if (this.doC < -273){
+                return -10;
+            }else {
+                return this.doC +273.15;
+            }
+        }
+    }
+    function tinhToan() {
+        let doC = +document.getElementById("dauVao").value;
+        let chuyenDoi = new DoiNhietDo(doC)
+        let doF = chuyenDoi.getDoiDoF()
+        if (doF == -500){
+            document.getElementById("dauRa").innerHTML = "Quá ngưỡng đổi";
+        }else {
+            document.getElementById("dauRa").value = doF;
+        }
+        let doiC_K = chuyenDoi.getDoiDoK()
+        if (doiC_K == -10){
+            document.getElementById("dauRa2").innerHTML = "quá ngưỡng đổi";
+        }else {
+            document.getElementById("dauRa2").value = doiC_K;
+        }
+    }
+</script>
+</body>
+</html>

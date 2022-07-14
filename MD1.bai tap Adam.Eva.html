@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Apple {
+    constructor(weight) {
+        this.weight = weight;
+    }
+    getWeight(){
+        return this.weight;
+    }
+    setWeight(){
+        this.weight = weight;
+    }
+    decrease(){
+        this.weight -- ;
+    }
+    isEmpty(){
+        if (this.weight >0){
+            return true
+        }else {
+            return false
+        }
+    }
+  }
+  class human {
+      constructor(name,gender,weight) {
+          this.name = name;
+          this.gender = gender;
+          this.weight = weight;
+      }
+      getName(){
+          return this.name;
+      }
+      setName(name){
+          this.name = name;
+      }
+      getGender(){
+          return this.gender;
+      }
+      setGender(gender){
+          this.gender = gender;
+      }
+      getWeight(){
+          return this.weight;
+      }
+      setWeight(weight){
+          this.weight = weight;
+      }
+      say(name,gender){
+         return  " gioi thieu ten va gioi tinh la " + name +" va "+ gender
+      }
+      eat(apple){
+          if (apple.isEmpty()){
+              apple.decrease()
+              this.setWeight(this.getWeight() +1)
+          }
+
+      }
+      checkApple(apple){
+          return apple.isEmpty()
+      }
+
+  }
+  let tao1 = new Apple(3)
+  let adam = new human("bazo",true,74);
+  console.log(adam)
+  let eva = new human("phuNu",false,55);
+  console.log(eva)
+
+</script>
+</body>
+</html>

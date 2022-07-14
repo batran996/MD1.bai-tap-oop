@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" style="width: 100%;height: 500px">
+    <tr>
+        <td>Chiều dài</td>
+        <td><input id="chieuDai" type="text"></td>
+    </tr>
+    <tr>
+        <td>Chiều rộng</td>
+        <td><input id="chieuRong" type="text"></td>
+    </tr>
+    <tr>
+        <td> Diện tích</td>
+        <td id="dienTich"></td>
+    </tr>
+    <tr>
+        <td>Chu vi</td>
+        <td id="chuVi"></td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="showKetQua()">Show kết quả</button>
+        </td>
+        <td>
+            <button onclick="reSet()">Reset</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <canvas id="myCanvas" width="800" height="300" style="border: 1px solid black">
+            </canvas>
+
+        </td>
+
+    </tr>
+</table>
+
+<script>
+    class HinhChuNhat {
+
+        constructor(chieuDai, chieuRong) {
+            this.chieuDai = chieuDai;
+            this.chieuRong = chieuRong;
+
+        }
+
+        KetQuaHinh() {
+            let canva = document.getElementById("myCanvas");
+            let ctx = canva.getContext('2d')
+            ctx.strokeStyle = "red";
+            ctx.strokeRect(50, 50, this.chieuDai, this.chieuRong)
+        }
+
+        dientich() {
+            return this.chieuDai * this.chieuRong;
+        }
+
+        chuVi() {
+            return 2 * (this.chieuDai + this.chieuRong);
+        }
+        showDienTich(){
+            document.getElementById("dienTich").innerHTML=this.dientich();
+        }
+        showChuVi(){
+            document.getElementById("chuVi").innerHTML = this.chuVi()
+        }
+        resset(){
+
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            context.beginPath();
+        }
+    }
+
+    function showKetQua() {
+        let hinhChuNhat1 = new HinhChuNhat(+document.getElementById("chieuDai").value, +document.getElementById("chieuRong").value)
+        hinhChuNhat1.KetQuaHinh();
+        let tinhS = new HinhChuNhat(+document.getElementById("chieuDai").value, +document.getElementById("chieuRong").value)
+        tinhS.showDienTich()
+        let tinhP = new HinhChuNhat(+document.getElementById("chieuDai").value, +document.getElementById("chieuRong").value)
+        tinhP.showChuVi();
+
+
+    }
+    function reSet(){
+        let lamLai = new HinhChuNhat(+document.getElementById("chieuDai").value, +document.getElementById("chieuRong").value)
+        lamLai.resset();
+    }
+
+
+</script>
+
+</body>
+</html>

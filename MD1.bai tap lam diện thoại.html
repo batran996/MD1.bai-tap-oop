@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Mobile 1</h2>
+<button id="nut1" onclick="trangThai(this.id)">ON</button>
+<button id="pinMobile1" onclick="pinMay(this.id)">Pin</button>
+<button id="send1" onclick="mesage(this.id)">SEND</button>
+<br>
+<textarea id="tinNhan1" style="width: 200px;height: 250px"></textarea> <br>
+<hr>
+<h2>Mobile 2</h2>
+<button id="nut2" onclick="trangThai(this.id)">ON</button>
+<button id="pinMobile2" onclick="pinMay(this.id)">Pin</button>
+<button id="send2" onclick="mesage(this.id)">SEND</button>
+<br>
+<textarea id="tinNhan2" style="width: 200px;height: 250px"></textarea> <br>
+
+<script>
+    class Mobile {
+        constructor(name, battery,status,inBox,outBox) {
+            this.name = name;
+            this.battery = battery;
+            this.status = status;
+            this.inBox = [];
+            this.outBox = [];
+        }
+
+        getName(name) {
+            return this.name
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getBattery(battery) {
+            return this.battery;
+        }
+
+        setBattery(battery) {
+            this.battery = battery;
+        }
+        getStatus(status){
+            return this.status
+        }
+        setStatus(status){
+            this.status = status;
+        }
+        getInBox(inBox){
+            return this.inBox;
+        }
+        setInBox(inbox){
+            this.inBox = inbox;
+        }
+        getOutBox(outBox){
+            return this.outBox;
+        }
+        setOutBox(outBox){
+            this.outBox = outBox
+        }
+    }
+    let status1 = true;
+    let status2 = true;
+    function trangThai(id) {
+        if (id == "nut1") {
+            status1 = !status1;
+            if (status1) {
+                document.getElementById(id).innerHTML = "ON";
+            } else {
+                document.getElementById(id).innerHTML = "OFF";
+            }
+        } else {
+            status2 = !status2;
+            if (status2) {
+                document.getElementById(id).innerHTML = "ON";
+            } else {
+                document.getElementById(id).innerHTML = "OFF";
+            }
+        }
+    }
+    let Mobile1 = new Mobile('may1',100, false);
+    let Mobile2 = new Mobile('may2',100,false);
+    function pinMay(id) {
+        if (id === "pinMobile1"){
+            document.getElementById("pinMobile1").innerHTML = Mobile1.getBattery() + "%";
+        }
+        if (id === "pinMobile2"){
+            document.getElementById("pinMobile2").innerHTML = Mobile2.getBattery() + "%";
+        }
+    }
+    let count = 0;
+    function mesage(id) {
+
+        if (id === "send1"){
+            count ++
+            Mobile1.getOutBox().push(document.getElementById("tinNhan1").value);
+            // document.getElementById("tinNhan2").value = "bạn có tin nhắn mới" + count +"message";
+            document.getElementById("tinNhan2").value = document.getElementById("tinNhan1").value
+            document.getElementById("tinNhan1").value = "";
+        }
+        if (id === "send2"){
+            Mobile2.getOutBox().push(document.getElementById("tinNhan2").value)
+            document.getElementById("tinNhan1").value = document.getElementById("tinNhan2").value;
+            document.getElementById("tinNhan2").value = "";
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+  class Mouse {
+      constructor(name,weight,speed,trangThai,voice) {
+       this.name = name;
+       this.weight = weight;
+       this.speed = speed;
+       this.trangThai = trangThai;
+       this.voice = voice;
+      }
+      getName(){
+          return this.name
+      }
+      setName(name){
+          this.name = name;
+      }
+      getWeight(){
+          return this.weight;
+      }
+      setWeight(weight){
+          this.weight = weight;
+      }
+      getSpeed(){
+          return this.speed;
+      }
+      setSpeed(speed){
+          this.speed = speed;
+      }
+      getTrangThai(){
+          return this.trangThai;
+      }
+      setTrangThai(trangThai){
+          this.trangThai = trangThai;
+      }
+      getVoice(){
+          return this.voice;
+      }
+      setVoice(voice){
+          this.voice = voice;
+      }
+  }
+  class Cat {
+      constructor(name,weight,maxspeed,voice,batChuot,mouseEat) {
+          this.name = name;
+          this.weight = weight;
+          this.maxspeed = maxspeed;
+          this.voice = voice;
+          this.batChuot = batChuot;
+          this.mouseEat = mouseEat;
+      }
+      getName(){
+          return this.name;
+      }
+      setName(name){
+          this.name = name;
+      }
+      getWeight(){
+          return this.weight;
+      }
+      setWeight(weight){
+          this.weight = weight;
+      }
+      getMaxspeed(){
+          return this.maxspeed;
+      }
+      setMaxSpeed(maxSpeed){
+          this.maxspeed =maxSpeed;
+      }
+      getVoice(){
+          return this.voice;
+      }
+      setVoice(voice) {
+          this.voice = voice;
+      }
+      getBatChuot(){
+          return this.batChuot;
+      }
+      setBatChuot(batChuot) {
+          this.batChuot = batChuot;
+      }
+      getMouseEat(){
+          return this.mouseEat;
+      }
+      setMouseEat(mouseEat) {
+          this.mouseEat = mouseEat;
+      }
+  }
+  let jery = new Mouse("jeryy",3,5,"song","chitChit");
+  let tom = new Cat("tomm",4,7,"meoMeo","bat","an")
+
+</script>
+</body>
+</html>
